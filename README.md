@@ -1,47 +1,47 @@
 # Pinterest Image Bot 🖼️
 
-Ein Discord Bot, der Bilder von Pinterest sucht und herunterlädt. Der Bot nutzt Web-Scraping, um Bilder basierend auf Suchbegriffen zu finden und direkt in Discord-Kanäle zu senden.
+A Discord bot that searches and downloads images from Pinterest using web scraping. The bot finds images based on keywords and sends them directly to Discord channels.
 
 ## ✨ Features
 
-- 🔍 **Bildsuche**: Suche nach Bildern auf Pinterest mit Stichwörtern
-- 📥 **Automatischer Download**: Lädt bis zu 10 Bilder gleichzeitig herunter
-- ⏰ **Cooldown-System**: Konfigurierbarer Cooldown zwischen Anfragen (Standard: 30 Sekunden)
-- 🎨 **Anpassbare Embeds**: Konfigurierbare Farben für Bot-Nachrichten
-- 🧹 **Automatische Bereinigung**: Temporäre Dateien werden automatisch gelöscht
-- 🛡️ **Fehlerbehandlung**: Robuste Behandlung von Netzwerk- und Dateifehlern
+- 🔍 **Image Search**: Search for images on Pinterest using keywords
+- 📥 **Automatic Download**: Downloads up to 10 images simultaneously
+- ⏰ **Cooldown System**: Configurable cooldown between requests (default: 30 seconds)
+- 🎨 **Customizable Embeds**: Configurable colors for bot messages
+- 🧹 **Automatic Cleanup**: Temporary files are automatically deleted
+- 🛡️ **Error Handling**: Robust handling of network and file errors
 
-## 🛠️ Verwendete Technologien
+## 🛠️ Technologies Used
 
 - **Python 3.8+**
 - **discord.py** - Discord Bot Framework
 - **pinscrape** - Pinterest Web-Scraping Library
-- **python-dotenv** - Umgebungsvariablen Management
+- **python-dotenv** - Environment Variables Management
 
-## 📋 Voraussetzungen
+## 📋 Prerequisites
 
-- Python 3.8 oder höher
+- Python 3.8 or higher
 - Discord Bot Token
-- Internetverbindung
+- Internet connection
 
 ## 🚀 Installation
 
-### 1. Repository klonen
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/yourusername/pinterest-discord-bot.git
 cd pinterest-discord-bot
 ```
 
-### 2. Abhängigkeiten installieren
+### 2. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Umgebungsvariablen konfigurieren
-Erstelle eine `.env` Datei im Projektverzeichnis:
+### 3. Configure Environment Variables
+Create a `.env` file in the project directory:
 
 ```env
-BOT_TOKEN=dein_discord_bot_token_hier
+BOT_TOKEN=your_discord_bot_token_here
 EMBED_COLOR=0xe0dade
 COOLDOWN_DURATION=30
 DEFAULT_SLEEP_TIME=1
@@ -49,25 +49,25 @@ MAX_WORKERS=5
 MAX_IMAGES_PER_REQUEST=10
 ```
 
-### 4. Discord Bot erstellen
+### 4. Create Discord Bot
 
-1. Gehe zu [Discord Developer Portal](https://discord.com/developers/applications)
-2. Erstelle eine neue Application
-3. Gehe zu "Bot" und erstelle einen Bot
-4. Kopiere den Bot Token in deine `.env` Datei
-5. Aktiviere "Message Content Intent" unter "Privileged Gateway Intents"
+1. Go to [Discord Developer Portal](https://discord.com/developers/applications)
+2. Create a new Application
+3. Go to "Bot" and create a Bot
+4. Copy the Bot Token to your `.env` file
+5. Enable "Message Content Intent" under "Privileged Gateway Intents"
 
-### 5. Bot zu Server einladen
+### 5. Invite Bot to Server
 
-Generiere einen Einladungslink mit folgenden Berechtigungen:
+Generate an invitation link with the following permissions:
 - `Send Messages`
 - `Attach Files`
 - `Use Slash Commands`
 - `Embed Links`
 
-## 🎮 Verwendung
+## 🎮 Usage
 
-### Bot starten
+### Start the Bot
 ```bash
 python bot.py
 ```
@@ -75,117 +75,117 @@ python bot.py
 ### Slash Commands
 
 #### `/pull`
-Sucht und lädt Bilder von Pinterest herunter.
+Searches and downloads images from Pinterest.
 
-**Parameter:**
-- `keyword` (erforderlich): Suchbegriff für die Bildsuche
-- `amount` (optional): Anzahl der Bilder (1-10, Standard: 5)
-- `ephemeral` (optional): Ob die Antwort nur für dich sichtbar ist (Standard: False)
+**Parameters:**
+- `keyword` (required): Search term for image search
+- `amount` (optional): Number of images (1-10, default: 5)
+- `ephemeral` (optional): Whether the response is only visible to you (default: False)
 
-**Beispiele:**
+**Examples:**
 ```
 /pull keyword:cats amount:5
 /pull keyword:nature amount:3 ephemeral:True
 /pull keyword:cars
 ```
 
-## ⚙️ Konfiguration
+## ⚙️ Configuration
 
-### Umgebungsvariablen
+### Environment Variables
 
-| Variable | Beschreibung | Standard | Beispiel |
-|----------|--------------|----------|----------|
+| Variable | Description | Default | Example |
+|----------|-------------|---------|---------|
 | `BOT_TOKEN` | Discord Bot Token | - | `MTQ0NzI2...` |
-| `EMBED_COLOR` | Farbe der Bot Embeds (Hex) | `0x323337` | `0xe0dade` |
-| `COOLDOWN_DURATION` | Cooldown zwischen Anfragen (Sekunden) | `30` | `60` |
-| `DEFAULT_SLEEP_TIME` | Wartezeit zwischen Downloads | `1` | `2` |
-| `MAX_WORKERS` | Maximale Download-Threads | `5` | `3` |
-| `MAX_IMAGES_PER_REQUEST` | Maximale Bilder pro Anfrage | `10` | `8` |
+| `EMBED_COLOR` | Bot Embed Color (Hex) | `0x323337` | `0xe0dade` |
+| `COOLDOWN_DURATION` | Cooldown between requests (seconds) | `30` | `60` |
+| `DEFAULT_SLEEP_TIME` | Wait time between downloads | `1` | `2` |
+| `MAX_WORKERS` | Maximum download threads | `5` | `3` |
+| `MAX_IMAGES_PER_REQUEST` | Maximum images per request | `10` | `8` |
 
-### Cooldown anpassen
+### Adjust Cooldown
 ```env
-COOLDOWN_DURATION=60  # 1 Minute Cooldown
-COOLDOWN_DURATION=120 # 2 Minuten Cooldown
+COOLDOWN_DURATION=60  # 1 minute cooldown
+COOLDOWN_DURATION=120 # 2 minutes cooldown
 ```
 
-### Embed-Farbe ändern
+### Change Embed Color
 ```env
-EMBED_COLOR=0xff0000  # Rot
-EMBED_COLOR=0x00ff00  # Grün
-EMBED_COLOR=0x0099ff  # Blau
+EMBED_COLOR=0xff0000  # Red
+EMBED_COLOR=0x00ff00  # Green
+EMBED_COLOR=0x0099ff  # Blue
 ```
 
 ## 🔧 Troubleshooting
 
-### Häufige Probleme
+### Common Issues
 
-**Bot reagiert nicht auf Slash Commands:**
-- Überprüfe, ob der Bot die richtigen Berechtigungen hat
-- Stelle sicher, dass "Message Content Intent" aktiviert ist
-- Warte bis zu 1 Stunde nach Änderungen an Slash Commands
+**Bot doesn't respond to Slash Commands:**
+- Check if the bot has the correct permissions
+- Make sure "Message Content Intent" is enabled
+- Wait up to 1 hour after making changes to Slash Commands
 
-**"Database Error" Meldungen:**
-- Überprüfe deine Internetverbindung
-- Versuche andere Suchbegriffe
-- Pinterest könnte temporär nicht verfügbar sein
+**"Database Error" messages:**
+- Check your internet connection
+- Try different search terms
+- Pinterest might be temporarily unavailable
 
-**Dateien können nicht gelöscht werden:**
-- Der Bot bereinigt Dateien automatisch beim nächsten Start
-- Stelle sicher, dass keine anderen Programme die Dateien verwenden
+**Files cannot be deleted:**
+- The bot automatically cleans up files on next startup
+- Make sure no other programs are using the files
 
-**UTF-8 Dekodierungsfehler:**
-- Der Bot behandelt diese automatisch und überspringt problematische Dateien
-- Versuche andere Suchbegriffe
+**UTF-8 decoding errors:**
+- The bot handles these automatically and skips problematic files
+- Try different search terms
 
-### Logs überprüfen
-Der Bot gibt detaillierte Logs in der Konsole aus:
+### Check Logs
+The bot outputs detailed logs to the console:
 ```
 nyxify dev#8447 is online!
 Cleaned up folder: temp_123456789
-Error in pull command: [Fehlerdetails]
+Error in pull command: [Error details]
 ```
 
-## 📁 Projektstruktur
+## 📁 Project Structure
 
 ```
 pinterest-discord-bot/
-├── bot.py              # Haupt-Bot Code
-├── requirements.txt    # Python Abhängigkeiten
-├── .env               # Umgebungsvariablen (nicht in Git)
-├── .gitignore         # Git Ignore Datei
-├── data/              # Datenordner
+├── bot.py              # Main bot code
+├── requirements.txt    # Python dependencies
+├── .env               # Environment variables (not in Git)
+├── .gitignore         # Git ignore file
+├── data/              # Data folder
 │   └── time_epoch.json
-└── temp_*/            # Temporäre Download-Ordner (automatisch bereinigt)
+└── temp_*/            # Temporary download folders (auto-cleaned)
 ```
 
-## 🤝 Beitragen
+## 🤝 Contributing
 
-1. Fork das Repository
-2. Erstelle einen Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Committe deine Änderungen (`git commit -m 'Add some AmazingFeature'`)
-4. Push zum Branch (`git push origin feature/AmazingFeature`)
-5. Öffne einen Pull Request
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 📝 Lizenz
+## 📝 License
 
-Dieses Projekt steht unter der MIT Lizenz. Siehe `LICENSE` Datei für Details.
+This project is licensed under the MIT License. See `LICENSE` file for details.
 
-## ⚠️ Haftungsausschluss
+## ⚠️ Disclaimer
 
-Dieser Bot ist nur für Bildungszwecke gedacht. Stelle sicher, dass du die Nutzungsbedingungen von Pinterest und Discord einhältst. Der Bot-Betreiber ist nicht verantwortlich für Missbrauch oder Verstöße gegen Plattform-Richtlinien.
+This bot is intended for educational purposes only. Make sure to comply with Pinterest's and Discord's terms of service. The bot operator is not responsible for misuse or violations of platform policies.
 
 ## 🔗 Links
 
-- [Discord.py Dokumentation](https://discordpy.readthedocs.io/)
-- [Pinterest API](https://developers.pinterest.com/)
+- [Discord.py Documentation](https://discordpy.readthedocs.io/)
+- [Pinscrape Library](https://github.com/iamatulsingh/pinscrape)
 - [Discord Developer Portal](https://discord.com/developers/applications)
 
 ## 📞 Support
 
-Bei Problemen oder Fragen:
-1. Überprüfe die Troubleshooting Sektion
-2. Öffne ein Issue auf GitHub
-3. Kontaktiere den Entwickler
+For issues or questions:
+1. Check the Troubleshooting section
+2. Open an issue on GitHub
+3. Contact me
 
 ---
 
